@@ -85,11 +85,13 @@ s.close()
 
 ##ClIENT
 
-<img width="696" height="313" alt="image" src="https://github.com/user-attachments/assets/727bac18-408d-4ebd-ab6d-8fd627a67583" />
+<img width="840" height="290" alt="image" src="https://github.com/user-attachments/assets/8b31110e-f356-4c7f-8156-0fa78cb445b8" />
+
 
 ## OUTPUT - SERVER
 
-<img width="1161" height="150" alt="image" src="https://github.com/user-attachments/assets/ecf4081d-1169-4213-aac2-8a787d4c857c" />
+<img width="1318" height="148" alt="image" src="https://github.com/user-attachments/assets/95e0e725-ef72-436f-830f-ea2167a8c405" />
+
 
 ## OUTPUT - CLIENT
 

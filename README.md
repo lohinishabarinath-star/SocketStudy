@@ -53,53 +53,49 @@ Socket programming finds applications in various domains, including web developm
 4.	Networked Games: Online multiplayer games rely on socket programming to facilitate communication between game clients and servers.
 5.	RPC mechanisms: which allow processes to execute code on a remote server, often use socket programming for communication.
 
-## CLIENT
+## SERVER
 ```
 import socket
 from datetime import datetime
 s = socket.socket()
-s.bind(('localhost',8000))
+s.bind(('localhost', 8000))
 s.listen(5)
-print("Waiting for connection...")
+
+print("Server waiting for connection...")
 c, addr = s.accept()
-print("Client connected:", addr)
+
+print("Client Connected :", addr)
 now = datetime.now()
-c.send(now.strftime("%d/%m/%Y %H:%M:%S").encode())
+message = now.strftime("%d/%m/%Y %H:%M:%S")
+c.send(message.encode())
 ack = c.recv(1024).decode()
-if ack:
-    print(ack)
-    c.close()
-```
-## SERVER
-```
-import socket
-s = socket.socket()
-s.connect(('localhost',8000))
-print("Connected to server")
-print(s.recv(1024).decode())
-s.send("Acknowledgement received from client".encode())
+
+print("Client Message :", ack)
+c.close()
 s.close()
 ```
-##CLIENT
-
-<img width="597" height="395" alt="image" src="https://github.com/user-attachments/assets/aee9261f-af6d-4172-9901-90a042691eec" />
-
+## CLIENT
+```
+import socket
+c = socket.socket()
+c.connect(('localhost', 8000))
+msg = c.recv(1024).decode()
+print("Date and Time from Server :", msg)
+c.send("Hi server".encode())
+c.close()
+```
 
 ##SERVER
 
-<img width="700" height="346" alt="image" src="https://github.com/user-attachments/assets/e93a45f2-4d1a-4cfa-a550-6d9f1b447b5b" />
+<img width="608" height="513" alt="image" src="https://github.com/user-attachments/assets/f501f458-a360-44ea-85c3-13a3c9bf0491" />
 
+##CLIENT
 
+<img width="600" height="241" alt="image" src="https://github.com/user-attachments/assets/1deb04b8-9e79-499c-8b86-9fcb6d9a9dd9" />
 
-## OUTPUT - CLIENT
+## OUTPUT 
 
-<img width="1312" height="138" alt="image" src="https://github.com/user-attachments/assets/89912558-e55e-4e62-97d5-2f5d04cd95d3" />
-
-
-
-## OUTPUT - SERVER
-
-<img width="1160" height="177" alt="image" src="https://github.com/user-attachments/assets/f7d9cc19-6760-4828-8acc-f3b600a759f2" />
+<img width="1171" height="171" alt="image" src="https://github.com/user-attachments/assets/6729cc07-f494-4375-96ee-8198dca66aa1" />
 
 
 ## Result:

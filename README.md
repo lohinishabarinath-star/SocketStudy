@@ -53,7 +53,7 @@ Socket programming finds applications in various domains, including web developm
 4.	Networked Games: Online multiplayer games rely on socket programming to facilitate communication between game clients and servers.
 5.	RPC mechanisms: which allow processes to execute code on a remote server, often use socket programming for communication.
 
-## Server
+## CLIENT
 ```
 import socket
 from datetime import datetime
@@ -66,10 +66,11 @@ print("Client connected:", addr)
 now = datetime.now()
 c.send(now.strftime("%d/%m/%Y %H:%M:%S").encode())
 ack = c.recv(1024).decode()
-print(ack)
-c.close()
+if ack:
+    print(ack)
+    c.close()
 ```
-## Client
+## SERVER
 ```
 import socket
 s = socket.socket()
@@ -79,23 +80,26 @@ print(s.recv(1024).decode())
 s.send("Acknowledgement received from client".encode())
 s.close()
 ```
+##CLIENT
+
+<img width="597" height="395" alt="image" src="https://github.com/user-attachments/assets/aee9261f-af6d-4172-9901-90a042691eec" />
+
+
 ##SERVER
 
-<img width="645" height="387" alt="image" src="https://github.com/user-attachments/assets/0821974d-ca41-46f9-a585-45f29568f58d" />
+<img width="700" height="346" alt="image" src="https://github.com/user-attachments/assets/e93a45f2-4d1a-4cfa-a550-6d9f1b447b5b" />
 
-##ClIENT
-
-<img width="840" height="290" alt="image" src="https://github.com/user-attachments/assets/8b31110e-f356-4c7f-8156-0fa78cb445b8" />
-
-
-## OUTPUT - SERVER
-
-<img width="1318" height="148" alt="image" src="https://github.com/user-attachments/assets/95e0e725-ef72-436f-830f-ea2167a8c405" />
 
 
 ## OUTPUT - CLIENT
 
-<img width="1166" height="175" alt="image" src="https://github.com/user-attachments/assets/55342311-b4ae-4929-94b7-1c7a7d9b8cca" />
+<img width="1312" height="138" alt="image" src="https://github.com/user-attachments/assets/89912558-e55e-4e62-97d5-2f5d04cd95d3" />
+
+
+
+## OUTPUT - SERVER
+
+<img width="1160" height="177" alt="image" src="https://github.com/user-attachments/assets/f7d9cc19-6760-4828-8acc-f3b600a759f2" />
 
 
 ## Result:
